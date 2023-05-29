@@ -1,7 +1,10 @@
 ﻿@using Vitalis.Shared
 @using Vitalis.Pages
 @using Vitalis.Components
+@using Vitalis.Shared.Services
+@inject ThemeService ThemeService
 
+<MudThemeProvider Theme="@ThemeService.CurrentTheme"/>
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(VitalisLayout)" />
@@ -14,3 +17,18 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        // Subscribe to the theme changed event
+        ThemeService.ThemeChanged += OnThemeChanged;
+    }
+
+    private void OnThemeChanged()
+    {
+        // Update the theme provider
+        InvokeAsync(StateHasChanged);
+    }
+}

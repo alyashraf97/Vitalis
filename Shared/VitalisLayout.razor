@@ -5,7 +5,6 @@
 @using Vitalis.Shared.Services
 @inject ThemeService ThemeService
 
-<MudThemeProvider Theme="ThemeService.CurrentTheme" />
 <MudLayout>
     <MudDrawer Open="@_drawerOpen" Elevation="1" Breakpoint="MudBlazor.Breakpoint.Md" Variant="DrawerVariant.Mini">
         <VitalisNavMenu ToggleDrawer=@ToggleDrawer/>
@@ -24,17 +23,6 @@
     {
         _drawerOpen = !_drawerOpen;
     }
-
-    protected override void OnInitialized()
-    {
-        // Subscribe to the theme changed event
-        ThemeService.ThemeChanged += OnThemeChanged;
-    }
-
-    private void OnThemeChanged()
-    {
-        // Update the theme provider
-        InvokeAsync(StateHasChanged);
-    }
+    
 }
 
