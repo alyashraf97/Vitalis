@@ -1,0 +1,40 @@
+﻿@inherits LayoutComponentBase
+@using Vitalis.Components.Navigation
+@using Vitalis.Components
+@using Vitalis.Pages
+@using Vitalis.Shared.Services
+@inject ThemeService ThemeService
+
+<MudThemeProvider Theme="ThemeService.CurrentTheme" />
+<MudLayout>
+    <MudDrawer Open="@_drawerOpen" Elevation="1" Breakpoint="MudBlazor.Breakpoint.Md" Variant="DrawerVariant.Mini">
+        <VitalisNavMenu ToggleDrawer=@ToggleDrawer/>
+    </MudDrawer>
+    <MudMainContent Class="px-16">
+        <MudContainer Class="mt-6">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool _drawerOpen = true;
+
+    private void ToggleDrawer()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    protected override void OnInitialized()
+    {
+        // Subscribe to the theme changed event
+        ThemeService.ThemeChanged += OnThemeChanged;
+    }
+
+    private void OnThemeChanged()
+    {
+        // Update the theme provider
+        InvokeAsync(StateHasChanged);
+    }
+}
+

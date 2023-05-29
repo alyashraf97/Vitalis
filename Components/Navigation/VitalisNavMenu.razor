@@ -1,0 +1,33 @@
+﻿@using Blazorise.Bootstrap
+@using Blazorise
+@using Blazorise.Icons.FontAwesome
+@using Vitalis.Shared.Services
+@using MudBlazor
+@inject ThemeService ThemeService
+@using System.ComponentModel.DataAnnotations
+
+
+<MudIconButton Icon="@Icons.Material.Filled.Menu" OnClick="ToggleDrawer" Edge="Edge.Start" />
+<MudNavMenu>
+    <MudNavLink Href="/" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+    <MudNavLink Href="/assets" Icon="@Icons.Material.Filled.AccountBalance">Assets</MudNavLink>
+    <MudNavLink Href="/budget" Icon="@Icons.Material.Filled.PieChart">Budget</MudNavLink>
+    <MudNavLink Href="/inventory" Icon="@Icons.Material.Filled.Store">Inventory</MudNavLink>
+    <MudNavLink Href="/payables" Icon="@Icons.Material.Filled.Payment">Payables</MudNavLink>
+    <MudNavLink Href="/payroll" Icon="@Icons.Material.Filled.People">Payroll</MudNavLink>
+    <MudNavLink Href="/receivables" Icon="@Icons.Material.Filled.Receipt">Receivables</MudNavLink>
+    <MudNavLink Href="/reports" Icon="@Icons.Material.Filled.Assessment">Reports</MudNavLink>
+    <MudNavLink Href="/taxes" Icon="@Icons.Material.Filled.Calculate">Taxes</MudNavLink>
+    <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
+</MudNavMenu>
+<MudButton Variant="Variant.Filled" Color="MudBlazor.Color.Primary" OnClick="ThemeService.ToggleDarkMode" Class="m-4">
+    <MudIcon Icon="@(ThemeService.IsDarkMode ? Icons.Material.Filled.Brightness7 : Icons.Material.Filled.Brightness4)" />
+</MudButton>
+
+
+@code{
+    
+    [Parameter]
+    [Required]
+    public Action ToggleDrawer { get; set; }
+}
