@@ -5,60 +5,115 @@
 
 <PageTitle>Overview</PageTitle>
 
+<div class="container" >
+    <div class="row">
+        <MudGrid Class="mt-n16">
+            <MudItem  xs="12" sm="6" md="4" lg="3" >
+                <MudCard>
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6" >Revenue</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6" Class="overflow-x-auto">$1,234,567,891,234</MudText>
+                        <MudText Color="MudBlazor.Color.Success">+5.6%</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <MudCard>
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">Expenses</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6" Class="overflow-x-auto">$456,789</MudText>
+                        <MudText Color="MudBlazor.Color.Error">-3.2%</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <MudCard>
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6" >Profit Margin</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6" Class="overflow-x-auto">63.1%</MudText>
+                        <MudText Color="MudBlazor.Color.Success">+2.4%</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <MudCard>
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6" >Debt-to-Equity Ratio</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6" Class="overflow-x-auto">0.45</MudText>
+                        <MudText Color="MudBlazor.Color.Error">-1.8%</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </div>
+    <div class="row">
+        <MudGrid>
+            <MudItem>                
+                <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels">
+                    <CustomGraphics>
+                        <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" 
+                                text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">
+                            Total
+                        </text>
+                        <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" 
+                                text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">
+                            @data.Sum().ToString()
+                        </text>
+                    </CustomGraphics>
+                    </MudChart>
+            </MudItem>
+            <MudItem>                
+                <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels">
+                    <CustomGraphics>
+                        <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" 
+                                text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">
+                            Total
+                        </text>
+                        <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" 
+                                text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">
+                            @data.Sum().ToString()
+                        </text>
+                    </CustomGraphics>
+                    </MudChart>
+            </MudItem>
+            <MudItem>                
+                <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels">
+                    <CustomGraphics>
+                        <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" 
+                                text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">
+                            Total
+                        </text>
+                        <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" 
+                                text-anchor="middle" font-size="5">
+                            @data.Sum().ToString()
+                        </text>
+                    </CustomGraphics>
+                    </MudChart>
+            </MudItem>
+        </MudGrid>
+    </div>
+</div>
 
-<MudGrid>
-    <MudItem xs="12" sm="6" md="4" lg="3">
-        <MudCard>
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h6" >Revenue</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText Typo="Typo.h6" Class="overflow-x-auto">$1,234,567,891,234</MudText>
-                <MudText Color="MudBlazor.Color.Success">+5.6%</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-    <MudItem xs="12" sm="6" md="4" lg="3">
-        <MudCard>
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h6" >Expenses</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText Typo="Typo.h6" Class="overflow-x-auto">$456,789</MudText>
-                <MudText Color="MudBlazor.Color.Error">-3.2%</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-    <MudItem xs="12" sm="6" md="4" lg="3">
-        <MudCard>
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h6" >Profit Margin</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText Typo="Typo.h6" Class="overflow-x-auto">63.1%</MudText>
-                <MudText Color="MudBlazor.Color.Success">+2.4%</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-    <MudItem xs="12" sm="6" md="4" lg="3">
-        <MudCard>
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h6" >Debt-to-Equity Ratio</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText Typo="Typo.h6" Class="overflow-x-auto">0.45</MudText>
-                <MudText Color="MudBlazor.Color.Error">-1.8%</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-</MudGrid>
+
+@code {
+    public double[] data = { 25, 77, 28, 5 };
+    public string[] labels = { "Oil", "Coal", "Gas", "Biomass" };
+}
 
                    

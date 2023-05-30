@@ -8,7 +8,6 @@ namespace Vitalis.Shared.Services
 
         public bool IsDarkMode { get; private set; }
 
-
         public event Action? ThemeChanged;
         private MudTheme _lightTheme;
         private MudTheme _darkTheme;
@@ -51,8 +50,8 @@ namespace Vitalis.Shared.Services
             };
 
             // Set the initial theme
-            IsDarkMode = false;
-            CurrentTheme = _lightTheme;
+            IsDarkMode = true;
+            CurrentTheme = _darkTheme;
         }
 
 

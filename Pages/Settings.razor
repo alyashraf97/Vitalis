@@ -1,4 +1,14 @@
-﻿<h3>Settings</h3>
+﻿@page "/settings"
+@using Vitalis.Shared.Services
+@inject ThemeService ThemeService
+
+
+<PageTitle>Settings</PageTitle>
+
+<MudButton Variant="Variant.Filled" Color="MudBlazor.Color.Primary" OnClick="ThemeService.ToggleDarkMode" Class="m-4">
+    <MudIcon Icon="@(ThemeService.IsDarkMode ? Icons.Material.Filled.Brightness7 : Icons.Material.Filled.Brightness4)" />
+</MudButton>
+
 
 @code {
 
