@@ -8,7 +8,8 @@ namespace Vitalis.Shared.Services
 
         public bool IsDarkMode { get; private set; }
 
-        public event Action ThemeChanged;
+
+        public event Action? ThemeChanged;
         private MudTheme _lightTheme;
         private MudTheme _darkTheme;
 
@@ -17,7 +18,8 @@ namespace Vitalis.Shared.Services
             // Define the light theme
             _lightTheme = new MudTheme()
             {
-                Palette = new Palette()
+                Palette = new PaletteLight()
+                /*
                 {
                     Primary = "#1976d2",
                     Secondary = "#ff4081",
@@ -28,13 +30,14 @@ namespace Vitalis.Shared.Services
                     TextPrimary = "rgba(0,0,0, 0.87)",
                     TextSecondary = "rgba(0,0,0, 0.54)"
                 }
+                */
             };
 
             // Define the dark theme
             _darkTheme = new MudTheme()
             {
-                Palette = new Palette()
-                {
+                Palette = new PaletteDark()
+                /*{
                     Primary = Colors.Blue.Lighten3,
                     Secondary = Colors.DeepPurple.Accent2,
                     Background = Colors.Grey.Darken4,
@@ -44,6 +47,7 @@ namespace Vitalis.Shared.Services
                     TextPrimary = "rgba(255,255,255, 0.87)",
                     TextSecondary = "rgba(255,255,255, 0.54)"
                 }
+                */
             };
 
             // Set the initial theme
